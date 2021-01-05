@@ -234,6 +234,17 @@ style choice_button is default:
 style choice_button_text is default:
     properties gui.button_text_properties("choice_button")
 
+screen case_form():
+
+    frame:
+        xalign 0.5 ypos 50
+        padding 50, 50
+        vbox:
+            xalign 0.5
+            yalign 0.5
+
+            text "subject name"
+            text [form_fields["subject_name"]]
 
 ## Quick Menu screen ###########################################################
 ##
