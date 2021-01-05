@@ -1,2 +1,19 @@
-[] Repo set up
-[] How to get multi input form in Ren'py
+Coding
+[x] Repo set up
+[x] How to get multi input form in Ren'py
+[x] should form values be set in a dictionary? yes?
+[x] How to launch form without asking question in menu
+[ ] Make sure editing system can handle multiple entries
+
+Game Design
+[] what kinds of inputs need to be in the form?
+
+Multi Text input
+- Make Creator Defined Displayable
+- Go through all questions one at a time
+- Form where individual items can be edited
+
+Current Implementation
+- Individual items can be edited
+- Form items need to be hardcoded
+- Text input is locked to ~28 characters?
