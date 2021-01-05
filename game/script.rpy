@@ -5,6 +5,7 @@
 
 define e = Character("Eileen")
 
+default subject_name = "default"
 
 # The game starts here.
 
@@ -30,4 +31,39 @@ label start:
 
     # This ends the game.
 
+    menu:
+        e "do you want to go to case?"
+
+        "Yes":
+            jump case
+
+        "No":
+            pass
+
     return
+
+label case:
+    show screen case_form
+
+    menu:
+        "edit":
+            hide screen case_form
+            jump case_edit_option
+        "close":
+            jump start
+
+    e "This is the case form/s"
+
+label case_edit_option:
+    menu:
+        e "What entry would you like to edit?"
+
+        "Subject Name":
+            jump case_edit
+
+label case_edit:
+    python:
+        subject_name = renpy.input("enter new value")
+        subject_name = subject_name.strip()
+
+    jump case
