@@ -272,6 +272,7 @@ screen quick_menu():
             textbutton _("Q.Save") action QuickSave()
             textbutton _("Q.Load") action QuickLoad()
             textbutton _("Prefs") action ShowMenu('preferences')
+            textbutton _("Case Notes") action Jump('case')
 
 
 ## This code ensures that the quick_menu screen is displayed in-game, whenever

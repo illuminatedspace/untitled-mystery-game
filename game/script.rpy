@@ -5,7 +5,12 @@
 
 define e = Character("Eileen")
 
+default form_fields = {
+    "subject_name": "default"
+}
+
 default subject_name = "default"
+default edit_field_name = None
 
 # The game starts here.
 
@@ -50,20 +55,26 @@ label case:
             hide screen case_form
             jump case_edit_option
         "close":
+            hide screen case_form
             jump start
 
-    e "This is the case form/s"
+    e "This is the case form"
 
 label case_edit_option:
     menu:
         e "What entry would you like to edit?"
 
         "Subject Name":
+            $ edit_field_name = 'subject_name'
             jump case_edit
+
+        "Cancel":
+            jump case
 
 label case_edit:
     python:
-        subject_name = renpy.input("enter new value")
-        subject_name = subject_name.strip()
+        form_fields[edit_field_name] = renpy.input("enter new value")
+        form_fields[edit_field_name] = form_fields[edit_field_name].strip()
+        edit_field_name = None
 
     jump case
