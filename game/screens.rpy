@@ -275,7 +275,7 @@ screen quick_menu():
             textbutton _("Q.Load") action QuickLoad()
             textbutton _("Prefs") action ShowMenu('preferences')
             textbutton _("Case Form") action Jump('case')
-            textbutton _("Case Notes") action ShowMenu('long_text_input_read')
+            textbutton _("Case Notes") action Jump('notes')
 
 
 ## This code ensures that the quick_menu screen is displayed in-game, whenever

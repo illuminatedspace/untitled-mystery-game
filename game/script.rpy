@@ -5,14 +5,20 @@
 
 define e = Character("Eileen")
 
+define nvl_notes = Character("Note", kind=nvl)
+
 default form_fields = {
     "subject_name": "default"
 }
 
 default notes = "Enter your case notes here."
+default notes_list = ["A note", "another note"]
+default notes_dict = {0: "pikachu", 1: "bulbasaur"}
 
 default subject_name = "default"
 default edit_field_name = None
+default edit_notes = False
+default note = ""
 
 # The game starts here.
 
@@ -80,3 +86,17 @@ label case_edit:
         edit_field_name = None
 
     jump case
+
+label notes:
+    nvl show
+    show screen edit_notes_button
+    $ pointer = 0
+
+    while pointer < len(notes_dict):
+        $ current_note = notes_dict[pointer]
+        nvl_notes "[pointer] [current_note]"
+        $ pointer = pointer + 1
+
+    nvl_notes "end of notes"
+
+    return

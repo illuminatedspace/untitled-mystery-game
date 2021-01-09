@@ -1,6 +1,5 @@
 #### Long Form Text Input Read
 screen long_text_input_read:
-    tag case
 
     frame:
         xalign 0.5
@@ -11,10 +10,25 @@ screen long_text_input_read:
 
 #### Long Form Text Input Edit
 screen long_text_input_write:
-    tag case
 
     frame:
         xalign 0.5
         ypos 50
-        vbox:
-            text "[store.notes]"
+        xsize 800
+        ysize 600
+        has vbox
+        label "Notes"
+        $ notes_key = len(notes_dict)
+        $ current_note = notes_dict[0]
+        input:
+            default current_note
+            value DictInputValue('notes_dict', 0, default=True)
+            length 300
+
+        textbutton "done" action Return()
+
+screen edit_notes_button:
+    textbutton "Edit Notes":
+        action ShowMenu('long_text_input_write')
+        xalign 0.5
+        ypos 50
