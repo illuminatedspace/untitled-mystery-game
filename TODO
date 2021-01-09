@@ -1,14 +1,11 @@
-Coding
 [x] Repo set up
 [x] How to get multi input form in Ren'py
 [x] should form values be set in a dictionary? yes?
 [x] How to launch form without asking question in menu
 [ ] Make sure editing system can handle multiple entries
 
-Game Design
-[] what kinds of inputs need to be in the form?
-
-Multi Text input
+# Tech Design Notes
+## Multi Text input
 - Make Creator Defined Displayable
 - Go through all questions one at a time
 - Form where individual items can be edited
@@ -17,3 +14,21 @@ Current Implementation
 - Individual items can be edited
 - Form items need to be hardcoded
 - Text input is locked to ~28 characters?
+
+## Long Form Text/Notes
+One long note field that is at least 300 words
+- view Notes
+- click to edit Notes
+    - put what's currently written into text area
+- submit to save notes
+    - save edited text area to notes variable
+- click to cancel edit
+
+Stack of notes
+- Hold notes in an array or something
+- Notes will consists of individual chunks of a few sentences
+- Add a new note
+    - cancel adding a new note
+    - submit note
+- Edit an existing note
+- delete a note
