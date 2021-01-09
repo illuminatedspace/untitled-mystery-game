@@ -235,6 +235,7 @@ style choice_button_text is default:
     properties gui.button_text_properties("choice_button")
 
 screen case_form():
+    tag case
 
     frame:
         xalign 0.5 ypos 50
@@ -245,6 +246,7 @@ screen case_form():
 
             text "subject name"
             text [form_fields["subject_name"]]
+            textbutton "Case Notes" action Show('long_text_input_read')
 
 ## Quick Menu screen ###########################################################
 ##
@@ -272,7 +274,8 @@ screen quick_menu():
             textbutton _("Q.Save") action QuickSave()
             textbutton _("Q.Load") action QuickLoad()
             textbutton _("Prefs") action ShowMenu('preferences')
-            textbutton _("Case Notes") action Jump('case')
+            textbutton _("Case Form") action Jump('case')
+            textbutton _("Case Notes") action ShowMenu('long_text_input_read')
 
 
 ## This code ensures that the quick_menu screen is displayed in-game, whenever

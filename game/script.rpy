@@ -9,6 +9,8 @@ default form_fields = {
     "subject_name": "default"
 }
 
+default notes = "Enter your case notes here."
+
 default subject_name = "default"
 default edit_field_name = None
 
