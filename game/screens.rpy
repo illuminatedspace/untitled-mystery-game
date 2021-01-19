@@ -234,6 +234,10 @@ style choice_button is default:
 style choice_button_text is default:
     properties gui.button_text_properties("choice_button")
 
+style white_textbutton:
+    padding (20, 20)
+    hover_color "#ff0000"
+
 screen case_form():
     tag case
 
@@ -246,7 +250,9 @@ screen case_form():
 
             text "subject name"
             text [form_fields["subject_name"]]
-            textbutton "Case Notes" action Show('long_text_input_read')
+            textbutton "Case Notes":
+                action Show('long_text_input_read')
+                style "white_textbutton"
 
 ## Quick Menu screen ###########################################################
 ##

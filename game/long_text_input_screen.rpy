@@ -20,9 +20,11 @@ screen long_text_input_write:
         label "Notes"
         $ notes_key = len(notes_dict)
         $ current_note = notes_dict[0]
+        text "[notes_key]"
+        text "[current_note]"
         input:
             default current_note
-            value DictInputValue('notes_dict', 0, default=True)
+            value DictInputValue(notes_dict, 0)
             length 300
 
         textbutton "done" action Return()
