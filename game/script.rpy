@@ -36,9 +36,15 @@ label start:
 
     # These display lines of dialogue.
 
-    e "You've created a new Ren'Py game."
+    nvl show
 
-    e "Once you add a story, pictures, and music, you can release it to the world!"
+    nvl_notes "You've created a new Ren'Py game."
+
+    nvl_notes "Once you add a story, pictures, and music, you can release it to the world!"
+    nvl_notes "Once you add a story, pictures, and music, you can release it to the world!"
+    nvl_notes "Once you add a story, pictures, and music, you can release it to the world!"
+    nvl_notes "Once you add a story, pictures, and music, you can release it to the world!"
+    nvl_notes "Once you add a story, pictures, and music, you can release it to the world!"
 
     # This ends the game.
 

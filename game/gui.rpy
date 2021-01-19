@@ -360,7 +360,7 @@ define gui.history_text_xalign = 0.0
 ## The NVL-mode screen displays the dialogue spoken by NVL-mode characters.
 
 ## The borders of the background of the NVL-mode background window.
-define gui.nvl_borders = Borders(0, 10, 0, 20)
+define gui.nvl_borders = Borders(10, 10, 10, 20)
 
 ## The maximum number of NVL-mode entries Ren'Py will display. When more entries
 ## than this are to be show, the oldest entry will be removed.
@@ -376,15 +376,15 @@ define gui.nvl_spacing = 10
 
 ## The position, width, and alignment of the label giving the name of the
 ## speaking character.
-define gui.nvl_name_xpos = 430
+define gui.nvl_name_xpos = 0
 define gui.nvl_name_ypos = 0
 define gui.nvl_name_width = 150
-define gui.nvl_name_xalign = 1.0
+define gui.nvl_name_xalign = 0
 
 ## The position, width, and alignment of the dialogue text.
-define gui.nvl_text_xpos = 450
+define gui.nvl_text_xpos = 150
 define gui.nvl_text_ypos = 8
-define gui.nvl_text_width = 590
+define gui.nvl_text_width = 455
 define gui.nvl_text_xalign = 0.0
 
 ## The position, width, and alignment of nvl_thought text (the text said by the

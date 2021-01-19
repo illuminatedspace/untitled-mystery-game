@@ -1319,34 +1319,35 @@ style notify_text:
 
 screen nvl(dialogue, items=None):
 
-    window:
+    # window:
+    #     style "nvl_window"
+
+    frame:
         style "nvl_window"
+        # xpos 90 ypos 30
+        # top_padding 10 bottom_padding 10 left_padding 10 right_padding 10
+        has side "c r":
+            # area (0, 0, 200, 350)
+            viewport id "vp":
+                draggable True
+                yadjustment ui.adjustment (value=99999, range=99999)   # err... works, but...
 
-        has vbox:
-            spacing gui.nvl_spacing
+                vbox:
+                    style "nvl_vbox"
 
-        ## Displays dialogue in either a vpgrid or the vbox.
-        if gui.nvl_height:
+                    # Display dialogue.
+                    for who, what, who_id, what_id, window_id in dialogue:
+                        window:
+                            id window_id
 
-            vpgrid:
-                cols 1
-                yinitial 1.0
+                            has hbox:
+                                spacing 10
 
-                use nvl_dialogue(dialogue)
+                            if who is not None:
+                                text who id who_id
 
-        else:
-
-            use nvl_dialogue(dialogue)
-
-        ## Displays the menu, if given. The menu may be displayed incorrectly if
-        ## config.narrator_menu is set to True, as it is above.
-        for i in items:
-
-            textbutton i.caption:
-                action i.action
-                style "nvl_button"
-
-    add SideImage() xalign 0.0 yalign 1.0
+                            text what id what_id
+            vbar value YScrollValue("vp") bar_invert True
 
 
 screen nvl_dialogue(dialogue):
@@ -1382,8 +1383,11 @@ style nvl_button is button
 style nvl_button_text is button_text
 
 style nvl_window:
-    xfill True
-    yfill True
+    xsize 605 
+    ysize 721
+
+    xpos 465
+    ypos 101
 
     background "gui/nvl.png"
     padding gui.nvl_borders.padding
