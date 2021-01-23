@@ -45,6 +45,10 @@ label start:
     nvl_notes "Once you add a story, pictures, and music, you can release it to the world!"
     nvl_notes "Once you add a story, pictures, and music, you can release it to the world!"
     nvl_notes "Once you add a story, pictures, and music, you can release it to the world!"
+    nvl_notes "Once you add a story, pictures, and music, you can release it to the world!"
+    nvl_notes "Once you add a story, pictures, and music, you can release it to the world!"
+    nvl_notes "Once you add a story, pictures, and music, you can release it to the world!"
+    nvl_notes "Once you add a story, pictures, and music, you can release it to the world!"
 
     # This ends the game.
 

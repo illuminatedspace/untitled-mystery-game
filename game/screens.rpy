@@ -1316,38 +1316,31 @@ style notify_text:
 ##
 ## https://www.renpy.org/doc/html/screen_special.html#nvl
 
-
 screen nvl(dialogue, items=None):
-
-    # window:
-    #     style "nvl_window"
-
-    frame:
-        style "nvl_window"
-        # xpos 90 ypos 30
-        # top_padding 10 bottom_padding 10 left_padding 10 right_padding 10
+   
+    window:
+        style "nvl_viewport"
         has side "c r":
-            # area (0, 0, 200, 350)
-            viewport id "vp":
+            viewport id "vp_dialogue":
                 draggable True
-                yadjustment ui.adjustment (value=99999, range=99999)   # err... works, but...
+                scrollbars "vertical"
 
                 vbox:
-                    style "nvl_vbox"
+                    style "nvl_window"
+                    spacing gui.nvl_spacing
+                    
+                    ## Displays dialogue in either a vpgrid or the vbox.
+                    if gui.nvl_height:
+                        vpgrid:
+                            cols 1
+                            yinitial 1.0
 
-                    # Display dialogue.
-                    for who, what, who_id, what_id, window_id in dialogue:
-                        window:
-                            id window_id
+                            use nvl_dialogue(dialogue) 
 
-                            has hbox:
-                                spacing 10
+                    else:
+                        use nvl_dialogue(dialogue)
 
-                            if who is not None:
-                                text who id who_id
-
-                            text what id what_id
-            vbar value YScrollValue("vp") bar_invert True
+            vbar value YScrollValue("vp_dialogue")
 
 
 screen nvl_dialogue(dialogue):
@@ -1382,13 +1375,14 @@ style nvl_dialogue is say_dialogue
 style nvl_button is button
 style nvl_button_text is button_text
 
-style nvl_window:
-    xsize 605 
-    ysize 721
+style nvl_viewport:
+    xsize 580
+    ysize 700
 
-    xpos 465
+    xpos 470
     ypos 101
 
+style nvl_window:
     background "gui/nvl.png"
     padding gui.nvl_borders.padding
 
