@@ -234,7 +234,12 @@ style choice_button is default:
 style choice_button_text is default:
     properties gui.button_text_properties("choice_button")
 
+style white_textbutton:
+    padding (20, 20)
+    hover_color "#ff0000"
+
 screen case_form():
+    tag case
 
     frame:
         xalign 0.5 ypos 50
@@ -245,6 +250,9 @@ screen case_form():
 
             text "subject name"
             text [form_fields["subject_name"]]
+            textbutton "Case Notes":
+                action Show('long_text_input_read')
+                style "white_textbutton"
 
 ## Quick Menu screen ###########################################################
 ##
@@ -272,7 +280,8 @@ screen quick_menu():
             textbutton _("Q.Save") action QuickSave()
             textbutton _("Q.Load") action QuickLoad()
             textbutton _("Prefs") action ShowMenu('preferences')
-            textbutton _("Case Notes") action Jump('case')
+            textbutton _("Case Form") action Jump('case')
+            textbutton _("Case Notes") action Jump('notes')
 
 
 ## This code ensures that the quick_menu screen is displayed in-game, whenever
@@ -1307,37 +1316,37 @@ style notify_text:
 ##
 ## https://www.renpy.org/doc/html/screen_special.html#nvl
 
-
 screen nvl(dialogue, items=None):
 
+    # Always make scrollbar at bottom
+    # https://lemmasoft.renai.us/forums/viewtopic.php?t=32584
+    $ yadjValue = float('inf')
+    $ yadj = ui.adjustment()
+
+    python:
+        yadj.value = yadjValue
+
     window:
-        style "nvl_window"
+        style "nvl_viewport"
+        has side "c r":
+            viewport id "vp_dialogue" yadjustment yadj:
 
-        has vbox:
-            spacing gui.nvl_spacing
+                vbox:
+                    style "nvl_window"
+                    spacing gui.nvl_spacing
+                    
+                    ## Displays dialogue in either a vpgrid or the vbox.
+                    if gui.nvl_height:
+                        vpgrid:
+                            cols 1
+                            yinitial 1.0
 
-        ## Displays dialogue in either a vpgrid or the vbox.
-        if gui.nvl_height:
+                            use nvl_dialogue(dialogue) 
 
-            vpgrid:
-                cols 1
-                yinitial 1.0
+                    else:
+                        use nvl_dialogue(dialogue)
 
-                use nvl_dialogue(dialogue)
-
-        else:
-
-            use nvl_dialogue(dialogue)
-
-        ## Displays the menu, if given. The menu may be displayed incorrectly if
-        ## config.narrator_menu is set to True, as it is above.
-        for i in items:
-
-            textbutton i.caption:
-                action i.action
-                style "nvl_button"
-
-    add SideImage() xalign 0.0 yalign 1.0
+            vbar value YScrollValue("vp_dialogue")
 
 
 screen nvl_dialogue(dialogue):
@@ -1372,12 +1381,17 @@ style nvl_dialogue is say_dialogue
 style nvl_button is button
 style nvl_button_text is button_text
 
-style nvl_window:
-    xfill True
-    yfill True
+style nvl_viewport:
+    xsize 578
+    ysize 608
 
+    xpos 470
+    ypos 105
+
+    left_padding 20
+
+style nvl_window:
     background "gui/nvl.png"
-    padding gui.nvl_borders.padding
 
 style nvl_entry:
     xfill True

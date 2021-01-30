@@ -5,12 +5,20 @@
 
 define e = Character("Eileen")
 
+define nvl_notes = Character("IO Jones", kind=nvl)
+
 default form_fields = {
     "subject_name": "default"
 }
 
+default notes = "Enter your case notes here."
+default notes_list = ["A note", "another note"]
+default notes_dict = {0: "pikachu", 1: "bulbasaur"}
+
 default subject_name = "default"
 default edit_field_name = None
+default edit_notes = False
+default note = ""
 
 # The game starts here.
 
@@ -20,19 +28,33 @@ label start:
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
 
-    scene bg room
+    scene glass_main
 
     # This shows a character sprite. A placeholder is used, but you can
     # replace it by adding a file named "eileen happy.png" to the images
     # directory.
 
-    show eileen happy
-
     # These display lines of dialogue.
 
-    e "You've created a new Ren'Py game."
+    nvl show
 
-    e "Once you add a story, pictures, and music, you can release it to the world!"
+    nvl_notes "You've created a new Ren'Py game."
+
+    nvl_notes "This is the first text This is the first text This is the first text This is the first text This is the first text This is the first text This is the first text This is the first text This is the first text This is the first text"
+    nvl_notes "This is the second text"
+    nvl_notes "This is the third text"
+    nvl_notes "This is the fourth text"
+    nvl_notes "This is the fifth text"
+    nvl_notes "This is the sixth text"
+    nvl_notes "This is the seventh text"
+    nvl_notes "This is the eighth text"
+    nvl_notes "This is the ninth text"
+    nvl_notes "This is the tenth text"
+    nvl_notes "This is the eleventh text"
+    nvl_notes "This is the twelvth text"
+    nvl_notes "This is the thirteenth text"
+    nvl_notes "This is the fourteenth text"
+    nvl_notes "This is the fifteenth text"
 
     # This ends the game.
 
@@ -78,3 +100,17 @@ label case_edit:
         edit_field_name = None
 
     jump case
+
+label notes:
+    nvl show
+    show screen edit_notes_button
+    $ pointer = 0
+
+    while pointer < len(notes_dict):
+        $ current_note = notes_dict[pointer]
+        nvl_notes "[pointer] [current_note]"
+        $ pointer = pointer + 1
+
+    nvl_notes "end of notes"
+
+    return
