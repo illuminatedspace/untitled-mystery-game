@@ -23,7 +23,7 @@ init python:
 ## The colors of text in the interface.
 
 ## An accent color used throughout the interface to label and highlight text.
-define gui.accent_color = '#99ccff'
+define gui.accent_color = '#FFBB09'
 
 ## The color used for a text button when it is neither selected nor hovered.
 define gui.idle_color = '#888888'
@@ -58,7 +58,7 @@ define gui.interface_text_color = '#ffffff'
 define gui.text_font = "Inconsolata.ttf"
 
 ## The font used for character names.
-define gui.name_text_font = "Inconsolata.ttf"
+define gui.name_text_font = "Inconsolata-Bold.ttf"
 
 ## The font used for out-of-game text.
 define gui.interface_text_font = "Inconsolata.ttf"
@@ -67,7 +67,7 @@ define gui.interface_text_font = "Inconsolata.ttf"
 define gui.text_size = 22
 
 ## The size of character names.
-define gui.name_text_size = 30
+define gui.name_text_size = 28
 
 ## The size of text in the game's user interface.
 define gui.interface_text_size = 22
@@ -372,19 +372,19 @@ define gui.nvl_height = None
 
 ## The spacing between NVL-mode entries when gui.nvl_height is None, and between
 ## NVL-mode entries and an NVL-mode menu.
-define gui.nvl_spacing = 10
+define gui.nvl_spacing = 15
 
 ## The position, width, and alignment of the label giving the name of the
 ## speaking character.
 define gui.nvl_name_xpos = 0
-define gui.nvl_name_ypos = 0
+define gui.nvl_name_ypos = 15
 define gui.nvl_name_width = 150
 define gui.nvl_name_xalign = 0
 
 ## The position, width, and alignment of the dialogue text.
 define gui.nvl_text_xpos = 150
-define gui.nvl_text_ypos = 8
-define gui.nvl_text_width = 455
+define gui.nvl_text_ypos = 19
+define gui.nvl_text_width = 390
 define gui.nvl_text_xalign = 0.0
 
 ## The position, width, and alignment of nvl_thought text (the text said by the

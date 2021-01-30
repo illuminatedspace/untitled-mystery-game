@@ -1317,11 +1317,19 @@ style notify_text:
 ## https://www.renpy.org/doc/html/screen_special.html#nvl
 
 screen nvl(dialogue, items=None):
-   
+
+    # Always make scrollbar at bottom
+    # https://lemmasoft.renai.us/forums/viewtopic.php?t=32584
+    $ yadjValue = float('inf')
+    $ yadj = ui.adjustment()
+
+    python:
+        yadj.value = yadjValue
+
     window:
         style "nvl_viewport"
         has side "c r":
-            viewport id "vp_dialogue":
+            viewport id "vp_dialogue" yadjustment yadj:
 
                 vbox:
                     style "nvl_window"
@@ -1380,9 +1388,10 @@ style nvl_viewport:
     xpos 470
     ypos 105
 
+    left_padding 20
+
 style nvl_window:
     background "gui/nvl.png"
-    padding gui.nvl_borders.padding
 
 style nvl_entry:
     xfill True

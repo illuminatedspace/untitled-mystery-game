@@ -5,7 +5,7 @@
 
 define e = Character("Eileen")
 
-define nvl_notes = Character("Note", kind=nvl)
+define nvl_notes = Character("IO Jones", kind=nvl)
 
 default form_fields = {
     "subject_name": "default"
@@ -40,7 +40,7 @@ label start:
 
     nvl_notes "You've created a new Ren'Py game."
 
-    nvl_notes "This is the first text"
+    nvl_notes "This is the first text This is the first text This is the first text This is the first text This is the first text This is the first text This is the first text This is the first text This is the first text This is the first text"
     nvl_notes "This is the second text"
     nvl_notes "This is the third text"
     nvl_notes "This is the fourth text"
