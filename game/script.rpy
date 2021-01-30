@@ -40,15 +40,21 @@ label start:
 
     nvl_notes "You've created a new Ren'Py game."
 
-    nvl_notes "Once you add a story, pictures, and music, you can release it to the world!"
-    nvl_notes "Once you add a story, pictures, and music, you can release it to the world!"
-    nvl_notes "Once you add a story, pictures, and music, you can release it to the world!"
-    nvl_notes "Once you add a story, pictures, and music, you can release it to the world!"
-    nvl_notes "Once you add a story, pictures, and music, you can release it to the world!"
-    nvl_notes "Once you add a story, pictures, and music, you can release it to the world!"
-    nvl_notes "Once you add a story, pictures, and music, you can release it to the world!"
-    nvl_notes "Once you add a story, pictures, and music, you can release it to the world!"
-    nvl_notes "Once you add a story, pictures, and music, you can release it to the world!"
+    nvl_notes "This is the first text"
+    nvl_notes "This is the second text"
+    nvl_notes "This is the third text"
+    nvl_notes "This is the fourth text"
+    nvl_notes "This is the fifth text"
+    nvl_notes "This is the sixth text"
+    nvl_notes "This is the seventh text"
+    nvl_notes "This is the eighth text"
+    nvl_notes "This is the ninth text"
+    nvl_notes "This is the tenth text"
+    nvl_notes "This is the eleventh text"
+    nvl_notes "This is the twelvth text"
+    nvl_notes "This is the thirteenth text"
+    nvl_notes "This is the fourteenth text"
+    nvl_notes "This is the fifteenth text"
 
     # This ends the game.
 

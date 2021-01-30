@@ -1322,8 +1322,6 @@ screen nvl(dialogue, items=None):
         style "nvl_viewport"
         has side "c r":
             viewport id "vp_dialogue":
-                draggable True
-                scrollbars "vertical"
 
                 vbox:
                     style "nvl_window"
@@ -1376,11 +1374,11 @@ style nvl_button is button
 style nvl_button_text is button_text
 
 style nvl_viewport:
-    xsize 580
-    ysize 700
+    xsize 578
+    ysize 608
 
     xpos 470
-    ypos 101
+    ypos 105
 
 style nvl_window:
     background "gui/nvl.png"
