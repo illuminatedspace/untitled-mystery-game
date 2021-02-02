@@ -269,19 +269,32 @@ screen quick_menu():
         hbox:
             style_prefix "quick"
 
-            xalign 0.5
-            yalign 1.0
+            xpos 219
+            ypos 100
 
-            textbutton _("Back") action Rollback()
-            textbutton _("History") action ShowMenu('history')
-            textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True)
-            textbutton _("Auto") action Preference("auto-forward", "toggle")
-            textbutton _("Save") action ShowMenu('save')
-            textbutton _("Q.Save") action QuickSave()
-            textbutton _("Q.Load") action QuickLoad()
-            textbutton _("Prefs") action ShowMenu('preferences')
-            textbutton _("Case Form") action Jump('case')
-            textbutton _("Case Notes") action Jump('notes')
+            imagemap:
+                auto "gui/quick_menu_%s.png"
+
+                hotspot (10, 10, 250, 47) action ShowMenu('history') alt _("Transcrips")
+                hotspot (10, 64, 250, 47) action ShowMenu('history') alt _("History")
+                hotspot (10, 119, 250, 47) action ShowMenu('map') alt _("Map")
+                hotspot (10, 170, 250, 47) action QuickSave() alt _("Quick Save")
+                hotspot (10, 222, 250, 47) action ShowMenu('preferences') alt _("Preferences")
+
+                hotspot (10, 277, 200, 75) action Rollback() alt _("Back")
+                hotspot (85, 277, 200, 88) action Skip() alternate Skip(fast=True, confirm=True) alt _("Skip")
+                hotspot (174, 277, 200, 75) action Preference("auto-forward", "toggle") alt _("Auto")
+
+            # textbutton _("Back") action Rollback()
+            # textbutton _("History") action ShowMenu('history')
+            # textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True)
+            # textbutton _("Auto") action Preference("auto-forward", "toggle")
+            # textbutton _("Save") action ShowMenu('save')
+            # textbutton _("Q.Save") action QuickSave()
+            # textbutton _("Q.Load") action QuickLoad()
+            # textbutton _("Prefs") action ShowMenu('preferences')
+            # textbutton _("Case Form") action Jump('case')
+            # textbutton _("Case Notes") action Jump('notes')
 
 
 ## This code ensures that the quick_menu screen is displayed in-game, whenever
