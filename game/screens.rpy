@@ -285,18 +285,6 @@ screen quick_menu():
                 hotspot (85, 277, 200, 88) action Skip() alternate Skip(fast=True, confirm=True) alt _("Skip")
                 hotspot (174, 277, 200, 75) action Preference("auto-forward", "toggle") alt _("Auto")
 
-            # textbutton _("Back") action Rollback()
-            # textbutton _("History") action ShowMenu('history')
-            # textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True)
-            # textbutton _("Auto") action Preference("auto-forward", "toggle")
-            # textbutton _("Save") action ShowMenu('save')
-            # textbutton _("Q.Save") action QuickSave()
-            # textbutton _("Q.Load") action QuickLoad()
-            # textbutton _("Prefs") action ShowMenu('preferences')
-            # textbutton _("Case Form") action Jump('case')
-            # textbutton _("Case Notes") action Jump('notes')
-
-
 ## This code ensures that the quick_menu screen is displayed in-game, whenever
 ## the player has not explicitly hidden the interface.
 init python:
