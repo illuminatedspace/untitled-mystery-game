@@ -261,29 +261,24 @@ screen case_form():
 
 screen quick_menu():
 
-    ## Ensure this appears on top of other screens.
-    zorder 100
+    hbox:
+        style_prefix "quick"
 
-    if quick_menu:
+        xpos 219
+        ypos 100
 
-        hbox:
-            style_prefix "quick"
+        imagemap:
+            auto "gui/quick_menu_%s.png"
 
-            xpos 219
-            ypos 100
+            hotspot (10, 10, 250, 47) action ShowMenu('history') alt _("Transcrips")
+            hotspot (10, 64, 250, 47) action ShowMenu('history') alt _("History")
+            hotspot (10, 119, 250, 47) action ShowMenu('map') alt _("Map")
+            hotspot (10, 170, 250, 47) action QuickSave() alt _("Quick Save")
+            hotspot (10, 222, 250, 47) action ShowMenu('preferences') alt _("Preferences")
 
-            imagemap:
-                auto "gui/quick_menu_%s.png"
-
-                hotspot (10, 10, 250, 47) action ShowMenu('history') alt _("Transcrips")
-                hotspot (10, 64, 250, 47) action ShowMenu('history') alt _("History")
-                hotspot (10, 119, 250, 47) action ShowMenu('map') alt _("Map")
-                hotspot (10, 170, 250, 47) action QuickSave() alt _("Quick Save")
-                hotspot (10, 222, 250, 47) action ShowMenu('preferences') alt _("Preferences")
-
-                hotspot (10, 277, 200, 75) action Rollback() alt _("Back")
-                hotspot (85, 277, 200, 88) action Skip() alternate Skip(fast=True, confirm=True) alt _("Skip")
-                hotspot (174, 277, 200, 75) action Preference("auto-forward", "toggle") alt _("Auto")
+            hotspot (10, 277, 200, 75) action Rollback() alt _("Back")
+            hotspot (85, 277, 200, 88) action Skip() alternate Skip(fast=True, confirm=True) alt _("Skip")
+            hotspot (174, 277, 200, 75) action Preference("auto-forward", "toggle") alt _("Auto")
 
 ## This code ensures that the quick_menu screen is displayed in-game, whenever
 ## the player has not explicitly hidden the interface.
