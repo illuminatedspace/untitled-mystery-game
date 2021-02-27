@@ -13,6 +13,9 @@ init python:
 
         return pad_single_digit(hour) + ":" + pad_single_digit(minute)
 
+style datetime_textbutton:
+    color "#B3DCD9"
+
 screen time_management():
     $ date = "20XX-09-" + str(day + 21) + " " + format_time(hour, minute)
     
@@ -21,7 +24,9 @@ screen time_management():
         xpos 240
         ypos 5
 
-        text date
+        textbutton date:
+            text_style "datetime_textbutton"
+            action NullAction()
 
 init python:
     config.overlay_screens.append("time_management")
