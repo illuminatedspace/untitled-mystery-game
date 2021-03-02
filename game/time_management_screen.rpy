@@ -1,23 +1,29 @@
 init python:
-    def pad_single_digit(num):
-        output = str(num)
+    import datetime
 
-        if len(output) == 1:
-            output = "0" + output
+    starting_year = 2091
+    starting_month = 9
+    starting_day = 21
+    staring_hour = 10
+    starting_minute = 0
 
-        return output
+    default.day2 = (starting_day + 1, 8, 11)
 
-    def format_time(hour, minute):
-        string_hour = str(hour)
-        string_minute = str(minute)
+    # Initialize the starting date time
+    starting_date_time = datetime.datetime(starting_year, starting_month, starting_day, staring_hour, starting_minute)
+    default.current_time = starting_date_time
 
-        return pad_single_digit(hour) + ":" + pad_single_digit(minute)
+    def advance_time(hour_to_advance, minutes_to_advance):
+        default.current_time = default.current_time + datetime.timedelta(hours=hour_to_advance, minutes=minutes_to_advance)
+
+    def set_time(day, hour, minute):
+        default.current_time = default.current_time.replace(day=day, hour=hour, minute=minute)
 
 style datetime_textbutton:
     color "#B3DCD9"
 
 screen time_management():
-    $ date = "20XX-09-" + str(day + 21) + " " + format_time(hour, minute)
+    $ date = default.current_time.strftime("%Y-%m-%d %H:%M")
     
     vbox:
 

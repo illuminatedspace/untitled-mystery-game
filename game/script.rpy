@@ -19,9 +19,6 @@ default subject_name = "default"
 default edit_field_name = None
 default edit_notes = False
 default note = ""
-default day = 0
-default hour = 10
-default minute = 5
 
 # The game starts here.
 
@@ -48,13 +45,13 @@ label start:
     # This ends the game.
 
     menu:
-        nvl_notes "advance day?"
+        nvl_notes "Moving forward?"
 
-        "Yes":
-            $ day = day + 1
+        "Advance Time":
+            $ advance_time(12, 30)
 
-        "Of Course":
-            pass
+        "Set Time":
+            $ set_time(*default.day2)
 
     menu:
         e "do you want to go to case?"
